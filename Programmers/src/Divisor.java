@@ -1,11 +1,23 @@
-
-import java.util.Arrays;
-
-class Solution {
-  public int[] solution(int[] arr, int divisor) {
-          int[] answer = Arrays.stream(arr).filter(factor -> factor % divisor == 0).toArray();
-          if(answer.length == 0) answer = new int[] {-1};
-          java.util.Arrays.sort(answer);
-          return answer;
-  }
+import java.util.*;
+class Divisor {
+    public int[] solution(int[] arr, int divisor) {
+        int[] answer = {};
+        ArrayList<Integer> a = new ArrayList<Integer>();
+        
+        for(int i=0; i<arr.length; i++){
+            if(arr[i]%divisor == 0) a.add(arr[i]);
+        }
+        
+        if(a.isEmpty()){
+            a.add(-1);
+        }
+        answer = new int[a.size()];
+        
+        for(int i=0; i<a.size(); i++){
+            answer[i] = a.get(i);
+        }
+        Arrays.sort(answer);
+        
+        return answer;
+    }
 }
